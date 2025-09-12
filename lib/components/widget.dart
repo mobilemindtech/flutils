@@ -8,32 +8,34 @@ import 'package:flutils/misc/error.dart';
 import 'package:flutils/support/device.dart';
 import 'package:flutils/types/flutils_style.dart';
 import 'package:flutils/types/flutils_navigator.dart';
-
+import 'package:flutils/app/app_get.dart';
 
 class WidgetUtil {
 
   static Widget space5(){
-    return SizedBox(height: 5,);
+    return space(5);
   }
   static Widget space10(){
-    return SizedBox(height: 10,);
+    return space(10);
   }
 
   static Widget space15(){
-    return SizedBox(height: 15,);
+    return space(15);
   }
   static Widget space20(){
-    return SizedBox(height: 20,);
+    return space(20);
   }
 
   static Widget space25(){
-    return SizedBox(height: 25,);
+    return space(25);
   }
   static Widget space30(){
-    return SizedBox(height: 30,);
+    return space(30);
   }
   static Widget space(double val){
-    return SizedBox(height: val,);
+    return SizedBox(
+      height: AppGet.getPhoneOrTablet(val, val * 1.5)
+    );
   }
 
   static Widget getActivityIndicator(){
@@ -48,7 +50,7 @@ class WidgetUtil {
 
     var sendError = true;
 
-    //assert((){sendError = false; return true;}());
+    assert((){sendError = false; return true;}());
 
     print("sendError = $sendError");
 
