@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'dart:math';
 
-import 'package:flutils/app/safe.dart';
+import 'app_get.dart';
 
 class Device {
 
@@ -55,7 +55,7 @@ class Device {
 
   static bool isTablet() {
 
-    var query = MediaQueryData.fromWindow(Safe.get(WidgetsBinding.instance).window);
+    var query = MediaQueryData.fromWindow(AppGet.get(WidgetsBinding.instance).window);
     var size = query.size;
     var diagonal = sqrt(
         (size.width * size.width) +

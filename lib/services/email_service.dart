@@ -2,7 +2,7 @@
 
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutils/app/safe.dart';
+import 'package:flutils/misc/app_get.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
@@ -34,7 +34,7 @@ class EmailService {
     subject ??= "$appName - App info";
 
     if (lastSent != null) {
-      var diff = DateTime.now().difference(Safe.get(lastSent));
+      var diff = DateTime.now().difference(AppGet.get(lastSent));
 
       if (diff.inSeconds < 5)
         return;
@@ -46,8 +46,6 @@ class EmailService {
     sending = true;
 
     var userInfo = await userInfoFactory!();
-
-
 
     if (error != null) {
       print("email error type ${error.runtimeType}");

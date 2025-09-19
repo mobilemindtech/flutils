@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutils/support/device.dart';
+import 'package:flutils/misc/device.dart';
 import 'package:rxdart/streams.dart';
 
 typedef GetWidgetTest = bool Function();
@@ -104,4 +104,11 @@ class AppGet {
     }
   }
 
+  static T get<T>(T? val){
+    return val!;
+  }
+
+  static void exec(Function? cb){
+    if(cb != null) cb();
+  }
 }

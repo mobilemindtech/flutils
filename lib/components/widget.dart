@@ -1,11 +1,11 @@
 
 
 
+import 'package:flutils/misc/app_get.dart';
 import 'package:flutter/material.dart';
-import 'package:flutils/app/safe.dart';
 import 'package:flutils/services/email_service.dart';
 import 'package:flutils/misc/error.dart';
-import 'package:flutils/support/device.dart';
+import 'package:flutils/misc/device.dart';
 import 'package:flutils/types/flutils_style.dart';
 import 'package:flutils/types/flutils_navigator.dart';
 
@@ -48,12 +48,9 @@ class WidgetUtil {
 
     var sendError = true;
 
-    //assert((){sendError = false; return true;}());
-
-    print("sendError = $sendError");
-
-    if(sendError)
+    if(sendError) {
       EmailService.send(error: error, action: action);
+    }
 
     Widget actionBody = Container();
 
@@ -64,7 +61,7 @@ class WidgetUtil {
       actionBody = Column(
         children: [
           GestureDetector(
-            onTap: () => Safe.exec(runAgain),
+            onTap: () => AppGet.exec(runAgain),
             child: Container(
               margin: EdgeInsets.only(top: 5),
               child: Center(

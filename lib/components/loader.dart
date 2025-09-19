@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutils/app/app_get.dart';
+import 'package:flutils/misc/app_get.dart';
 
 
 class Loader{

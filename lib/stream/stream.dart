@@ -1,10 +1,10 @@
 
 import 'package:dartz/dartz.dart';
+import 'package:flutils/misc/app_get.dart';
 import 'package:flutils/types/flutils_navigator.dart';
 import 'package:flutils/types/flutils_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutils/app/safe.dart';
 import 'package:flutils/components/widget.dart';
 
 typedef WidgetStreamBuilder<T> = Widget Function(T);
@@ -103,7 +103,7 @@ class _WidgetStreamState<T> extends State<WidgetStream<T>> {
   StreamBuilder<WidgetData<T>> _make() {
     return StreamBuilder(
         initialData: widget.initialData,
-        stream: Safe.get(widget.stream),
+        stream: AppGet.get(widget.stream),
         builder: (BuildContext context, AsyncSnapshot<WidgetData<T>> snapshot){
 
           final widgetWrapper = Option.of(widget.widgetWrapperBuilder);
