@@ -1,9 +1,8 @@
 
-
 import 'package:flutils/misc/app_get.dart';
 import 'package:flutter/cupertino.dart';
 
-mixin FlutilsNavigatior {
+mixin FlutilsNavigator {
   Future logout(BuildContext context);
 
   /**
@@ -35,5 +34,12 @@ mixin FlutilsNavigatior {
    */
   bool isInRoute(BuildContext context, String routeName){
     return AppGet.get(ModalRoute.of(context)).settings.name == routeName;
+  }
+
+  void pushReplacementNamed(BuildContext context, String routeName, {bool loader = false}) {
+    if(loader)
+      Navigator.pop(context);
+
+    Navigator.pushReplacementNamed(context, routeName);
   }
 }

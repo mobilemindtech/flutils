@@ -55,7 +55,7 @@ class WidgetStream<T> extends StatefulWidget {
   final String emptyMessage;
   final bool ignoreLoading;
   final FlutilsStyle style;
-  final FlutilsNavigatior navigator;
+  final FlutilsNavigator navigator;
   final WidgetWrapperBuilder? widgetWrapperBuilder;
   final bool Function(WidgetData<T>)? filter;
 

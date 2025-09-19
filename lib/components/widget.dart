@@ -1,6 +1,4 @@
 
-
-
 import 'package:flutils/misc/app_get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutils/services/email_service.dart';
@@ -8,7 +6,6 @@ import 'package:flutils/misc/error.dart';
 import 'package:flutils/misc/device.dart';
 import 'package:flutils/types/flutils_style.dart';
 import 'package:flutils/types/flutils_navigator.dart';
-import 'package:flutils/app/app_get.dart';
 
 class WidgetUtil {
 
@@ -46,15 +43,13 @@ class WidgetUtil {
     );
   }
 
-  static Widget createErrorBox(String text, BuildContext context, FlutilsStyle style, FlutilsNavigatior navigator, {Object? error, String? action, Function? runAgain, Function? logout}){
+  static Widget createErrorBox(String text, BuildContext context, FlutilsStyle style, FlutilsNavigator navigator, {Object? error, String? action, Function? runAgain, Function? logout}){
 
     var sendError = true;
 
-
     assert((){sendError = false; return true;}());
 
-
-    if(sendError)
+    if (sendError) {
       EmailService.send(error: error, action: action);
     }
 
@@ -62,7 +57,7 @@ class WidgetUtil {
 
     text = textToError(text);
 
-    if(runAgain != null){
+    if (runAgain != null){
 
       actionBody = Column(
         children: [
@@ -105,8 +100,6 @@ class WidgetUtil {
       );
     }
 
-
-
     return Container(
         margin: EdgeInsets.only(top: 15),
         padding: EdgeInsets.all(15),
@@ -131,7 +124,6 @@ class WidgetUtil {
               ),
             ),
             actionBody
-
           ],
         )
     );
@@ -173,8 +165,4 @@ class WidgetUtil {
       ],
     );
   }
-
-
-
-
 }
