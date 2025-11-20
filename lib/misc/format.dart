@@ -1,4 +1,6 @@
 
+import 'dart:developer';
+
 import 'package:intl/intl.dart';
 
 var _regex = new RegExp(r"(\w+)");
@@ -19,6 +21,9 @@ String toMoney(double val){
 }
 
 DateTime? parseDate(val, {String format = "yyyy-MM-ddTHH:mm:ss"}){
+
+  log("######### parseDate val = ${val}");
+  log("######### parseDate format = ${format}");
 
   if(val == null) return null;
 
