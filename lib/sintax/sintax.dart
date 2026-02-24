@@ -26,3 +26,7 @@ extension FormattedMessage on Exception {
       };
 
 }
+
+extension PipeOperator<T, R> on T {
+  R operator |(Function(T) f) => f(this);
+}
